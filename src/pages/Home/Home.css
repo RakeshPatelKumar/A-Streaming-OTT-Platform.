@@ -1,0 +1,132 @@
+body {
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+.banner-img {
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 75%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
+}
+
+.hero-caption {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 5%; /* Adjust horizontal positioning */
+  transform: translateY(-50%); /* Adjust for centering */
+  color: #ffffff; /* Text color */
+  max-width: 60%; 
+  max-height: 60%;/* Limit width for readability */
+}
+
+.hero-caption .caption-img {
+  display: block;
+  width: 40%; /* Default size for larger screens */
+  max-width: 600px; /* Limit the maximum width */
+  margin-top: 40px; /* Space above the image */
+  margin-bottom: 0; /* No space below the image */
+}
+
+.hero-caption p {
+  font-size: 18px; /* Text size for paragraphs */
+  line-height: 1.6; /* Line spacing */
+  margin-top: 0; /* No space above the paragraph */
+  margin-bottom: 20px; /* Space between the paragraph and other elements */
+}
+
+
+.hero-btns {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+}
+
+.hero-btns .btn {
+  border: none;
+  outline: none;
+  padding: 10px 20px; /* Adjust padding */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  font-size: 16px; /* Button font size */
+  font-weight: 500;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-btns .btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.hero-btns .btn:hover {
+  background-color: #6d6d6eb3;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.hero-btns .btn.dark-btn {
+  background: #ffffffbf;
+  color: #000000;
+}
+
+.hero-btns .btn.dark-btn:hover {
+  background: #6d6d6e66;
+  color: #ffffff;
+}
+
+.more-cards{
+  padding-left: 6%;
+}
+
+@media(max-width:1024px){
+  .hero-caption .title-cards{
+    display: none;
+  }
+  .hero-btns{
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width:800px){
+  .hero-caption{
+    padding-left: 4%;
+  }
+  .hero-caption .caption-img{
+    margin-bottom: 10px;
+    width: 40%;
+  }
+  .hero-caption p{
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .hero-btns .btn.btn img{
+    width: 20px;
+  }
+  .more-cards{
+    padding-left: 4%;
+  }
+
+}
+
+@media(max-width:500px){
+  .hero-caption .caption-img{
+    display: none;
+  }
+  .btn img{
+    width:15px;
+  }
+  .hero-btns .btn{
+    padding:4px 10px;
+    gap:5px;
+    font-size: 10px;
+  }
+
+}
