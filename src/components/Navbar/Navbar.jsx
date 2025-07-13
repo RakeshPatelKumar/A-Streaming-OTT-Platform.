@@ -28,13 +28,14 @@ const Navbar = () => {
       <div className="navbar-left">
         <img src={logo} alt="Logo" />
         <ul>
-          <li><a href="https://example.com/home">Home</a></li>
-          <li><a href="https://example.com/tv-shows">TV Shows</a></li>
-          <li><a href="https://example.com/movies">Movies</a></li>
-          <li><a href="https://example.com/new-popular">New & Popular</a></li>
-          <li><a href="https://example.com/my-list">My List</a></li>
-          <li><a href="https://example.com/language">Browse by Language</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tv-shows">TV Shows</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#new-popular">New & Popular</a></li>
+          <li><a href="#my-list">My List</a></li>
+          <li><a href="#language">Browse by Language</a></li>
         </ul>
+
       </div>
 
       <div className="navbar-right">
