@@ -39,12 +39,7 @@ const Home = () => {
           <TitleCrads />
         </div>
       </div>
-      <div className='more-cards'>
-        <TitleCrads title={"Blockbuster Movies"} category={top_rated} />
-        <TitleCrads title={"Only on Netflix"} category={popular} />
-        <TitleCrads title={"Upcoming"} category={upcoming} />
-        <TitleCrads title={"Top Pics for You"} category={now_playing} />
-      </div>
+      
       <Footer />
     </div>
   );
