@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
 import banner from "../../assets/banner.jpeg";
@@ -9,7 +8,6 @@ import info_icon from "../../assets/info_icon.png";
 import TitleCrads from '../../components/TitleCards/TitleCrad';
 import Footer from '../../components/Footer/Footer';
 
-// Define category variables
 const top_rated = "top_rated";
 const popular = "popular";
 const upcoming = "upcoming";
@@ -36,8 +34,15 @@ const Home = () => {
               More Info
             </button>
           </div>
-          <TitleCrads />
+          {/* 🔴 Removed the extra <TitleCrads /> */}
         </div>
+      </div>
+      
+      <div className='more-cards'>
+        <TitleCrads title={"Blockbuster Movies"} category={top_rated} />
+        <TitleCrads title={"Only on Netflix"} category={popular} />
+        <TitleCrads title={"Upcoming"} category={upcoming} />
+        <TitleCrads title={"Top Pics for You"} category={now_playing} />
       </div>
       
       <Footer />
