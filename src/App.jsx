@@ -6,6 +6,10 @@ import { auth } from './firebase';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Player from './pages/Player/Player';
+import TVShows from './pages/TVShows/TVShows';
+import Movies from './pages/Movies/Movies';
+
+
 
 import { ToastContainer } from 'react-toastify';
 
@@ -40,11 +44,15 @@ const App = () => {
   return (
     <div>
       <ToastContainer theme='dark' />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/player/:id' element={<Player />} />
-      </Routes>
+    <Routes>
+<Route path="/tv-shows" element={<TVShows />} />
+<Route path="/movies" element={<Movies />} />
+<Route path="/new-popular" element={<NewPopular />} />
+<Route path="/my-list" element={<MyList />} />
+<Route path="/language" element={<Language />} />
+
+</Routes>
+
     </div>
   );
 };

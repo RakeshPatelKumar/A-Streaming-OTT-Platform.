@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
 import banner from "../../assets/banner.jpeg";
@@ -18,12 +19,10 @@ const Home = () => {
   return (
     <div className='home'>
       <Navbar />
-
-      {/* Hero Banner */}
       <div className='hero'>
-        <img src={banner} alt="Banner" className='banner-img' />
+        <img src={banner} alt="" className='banner-img' />
         <div className='hero-caption'>
-          <img src={title1} alt="Show Title" className='caption-img' />
+          <img src={title1} alt="" className='caption-img' />
           <p>
             Experience the mystery, wit, and darkness of Wednesday Addams as she uncovers chilling secrets in a world full of intrigue.
           </p>
@@ -37,37 +36,18 @@ const Home = () => {
               More Info
             </button>
           </div>
+          <TitleCrads />
         </div>
       </div>
-
-      {/* Netflix-like Sections */}
       <div className='more-cards'>
-
-        <section id="tv-shows">
-          <h2>TV Shows</h2>
-          <TitleCrads title="Only on Netflix" category={popular} />
-        </section>
-
-        <section id="movies">
-          <h2>Blockbuster Movies</h2>
-          <TitleCrads title="Blockbuster Movies" category={top_rated} />
-        </section>
-
-        <section id="new-popular">
-          <h2>Upcoming</h2>
-          <TitleCrads title="Upcoming" category={upcoming} />
-        </section>
-
-        <section id="my-list">
-          <h2>Top Picks for You</h2>
-          <TitleCrads title="Top Pics for You" category={now_playing} />
-        </section>
-
+        <TitleCrads title={"Blockbuster Movies"} category={top_rated} />
+        <TitleCrads title={"Only on Netflix"} category={popular} />
+        <TitleCrads title={"Upcoming"} category={upcoming} />
+        <TitleCrads title={"Top Pics for You"} category={now_playing} />
       </div>
-
       <Footer />
     </div>
   );
-};
+}
 
 export default Home;

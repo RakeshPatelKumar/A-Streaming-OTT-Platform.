@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+
 import logo from '../../assets/logo.png';
 import search_icon from '../../assets/search_icon.png';
 import bell_icon1 from '../../assets/bell_icon.png';
@@ -9,6 +11,7 @@ import { logout } from '../../firebase';
 
 const Navbar = () => {
   const navRef = useRef();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,28 +29,30 @@ const Navbar = () => {
   return (
     <div className="navbar" ref={navRef}>
       <div className="navbar-left">
-        <img src={logo} alt="Logo" />
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#tv-shows">TV Shows</a></li>
-          <li><a href="#movies">Movies</a></li>
-          <li><a href="#new-popular">New & Popular</a></li>
-          <li><a href="#my-list">My List</a></li>
-          <li><a href="#language">Browse by Language</a></li>
-        </ul>
+        <Link to="/">
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
 
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/tv-shows">TV Shows</Link></li>
+          <li><Link to="/movies">Movies</Link></li>
+          <li><Link to="/new-popular">New & Popular</Link></li>
+          <li><Link to="/my-list">My List</Link></li>
+          <li><Link to="/language">Browse by Language</Link></li>
+        </ul>
       </div>
 
       <div className="navbar-right">
         <img src={search_icon} alt="search" className="icons" />
         <p>Children</p>
-        <img src={bell_icon1} alt="bell" className="icons" />
+        <img src={bell_icon1} alt="notifications" className="icons" />
 
         <div className="navbar-profile">
           <img src={profile_img} alt="profile" className="profile" />
           <img src={dropdownicon} alt="dropdown" className="icons" />
           <div className="dropdown">
-            <p onClick={() => logout()}>Sign out of Netflix</p>
+            <p onClick={logout}>Sign out of Netflix</p>
           </div>
         </div>
       </div>
