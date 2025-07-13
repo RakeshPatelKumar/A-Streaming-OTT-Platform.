@@ -1,74 +1,60 @@
-import React from 'react';
-import './Home.css';
-import Navbar from '../../components/Navbar/Navbar';
+import React, { useEffect, useRef } from 'react';
+import './Navbar.css';
+import logo from '../../assets/logo.png';
+import search_icon from '../../assets/search_icon.png';
+import bell_icon1 from '../../assets/bell_icon.png';
+import profile_img from '../../assets/profile_img.png';
+import dropdownicon from '../../assets/dropdownicon.png';
+import { logout } from '../../firebase';
 
-import banner from "../../assets/banner.jpeg";
-import title1 from "../../assets/title1.png";
-import play_icon from "../../assets/play_icon.png";
-import info_icon from "../../assets/info_icon.png";
+const Navbar = () => {
+  const navRef = useRef();
 
-import TitleCrads from '../../components/TitleCards/TitleCrad';
-import Footer from '../../components/Footer/Footer';
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 80) {
+        navRef.current.classList.add('navbar-dark'); // Add class on scroll
+      } else {
+        navRef.current.classList.remove('navbar-dark'); // Remove class
+      }
+    };
 
-// Define category variables
-const top_rated = "top_rated";
-const popular = "popular";
-const upcoming = "upcoming";
-const now_playing = "now_playing";
+    window.addEventListener('scroll', handleScroll);
 
-const Home = () => {
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
+    };
+  }, []);
+
   return (
-    <div className='home'>
-      <Navbar />
+    <div className="navbar" ref={navRef}>
+      <div className="navbar-left">
+        <img src={logo} alt="Logo" />
+      <ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#tv-shows">TV Shows</a></li>
+  <li><a href="#movies">Movies</a></li>
+  <li><a href="#new-popular">New & Popular</a></li>
+  <li><a href="#my-list">My List</a></li>
+  <li><a href="#language">Browse by Language</a></li>
+</ul>
 
-      {/* Home Section */}
-      <div className='hero' id="home">
-        <img src={banner} alt="" className='banner-img' />
-        <div className='hero-caption'>
-          <img src={title1} alt="" className='caption-img' />
-          <p>
-            Experience the mystery, wit, and darkness of Wednesday Addams as she uncovers chilling secrets in a world full of intrigue.
-          </p>
-          <div className="hero-btns">
-            <button className="btn">
-              <img src={play_icon} alt="Play icon" />
-              Play
-            </button>
-            <button className="btn dark-btn">
-              <img src={info_icon} alt="More info" />
-              More Info
-            </button>
+
+      </div>
+      <div className="navbar-right">
+        <img src={search_icon} alt="search" className="icons" />
+        <p>Children</p>
+        <img src={bell_icon1} alt="search" className="icons" />
+        <div className="navbar-profile">
+          <img src={profile_img} alt="search" className="profile" />
+          <img src={dropdownicon} alt="" className="icons" />
+          <div className="dropdown">
+            <p onClick={() => { logout() }}>Sign out of Netflix</p>
           </div>
         </div>
       </div>
-
-      {/* Content Sections with IDs for scrolling */}
-      <div className='more-cards'>
-        <div id="tv-shows">
-          <TitleCrads title={"Blockbuster Movies"} category={top_rated} />
-        </div>
-
-        <div id="movies">
-          <TitleCrads title={"Only on Netflix"} category={popular} />
-        </div>
-
-        <div id="new-popular">
-          <TitleCrads title={"Upcoming"} category={upcoming} />
-        </div>
-
-        <div id="my-list">
-          <TitleCrads title={"Top Pics for You"} category={now_playing} />
-        </div>
-
-        <div id="language">
-          {/* Optional section or placeholder */}
-          <h2 style={{ padding: '20px' }}>Browse by Language Coming Soon...</h2>
-        </div>
-      </div>
-
-      <Footer />
     </div>
   );
 };
 
-export default Home;
+export default Navbar;
